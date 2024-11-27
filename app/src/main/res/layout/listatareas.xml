@@ -12,74 +12,30 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="83dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/fechaEntrega"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="292dp"
-                android:layout_marginTop="16dp"
-                android:text="junio 14,2024"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="28dp"
                 android:text="recycler item proyecto"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/fechaEntrega"
-                app:layout_constraintHorizontal_bias="0.087"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" /><![CDATA[
 
-            <TextView
-                android:id="@+id/Label1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:text="progreso"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/BProgreso" />
+            @+id/PorcentajeProgreso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50%"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/BProgreso"
+            app:layout_constraintTop_toBottomOf="@id/BProgreso" />
 
-            <ProgressBar
-                android:id="@+id/BProgreso"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="369dp"
-                android:layout_height="15dp"
-                android:max="100"
-                android:progress="40"
-                android:progressTint="#222222"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nombre" />
-
-            <TextView
-                android:id="@+id/PorcentajeProgreso"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="50%"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="@id/BProgreso"
-                app:layout_constraintTop_toBottomOf="@id/BProgreso" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="una pequeña descripcion"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@+id/Label1"
-                tools:layout_editor_absoluteX="0dp" />
+            ]]>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
