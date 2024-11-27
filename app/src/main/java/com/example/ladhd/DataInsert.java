@@ -29,15 +29,16 @@ public class DataInsert extends AppCompatActivity {
 
             // Configuración del botón en modo "modificar"
             binding.BTEditar.setText("Modificar tarea");
+
             binding.BTEditar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent();
+                    intent.putExtra("id", getIntent().getIntExtra("id", -1));
                     intent.putExtra("nombre", binding.nombre.getText().toString());
                     intent.putExtra("estado", binding.estado.getText().toString());
                     intent.putExtra("fechaEntrega", binding.fechaEntrega.getText().toString());
                     intent.putExtra("descripcion", binding.descripcion.getText().toString());
-                    intent.putExtra("id", id);
                     setResult(RESULT_OK, intent);
                     finish();
                 }
@@ -51,6 +52,7 @@ public class DataInsert extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent();
+                    intent.putExtra("id", getIntent().getIntExtra("id", -1));
                     intent.putExtra("nombre", binding.nombre.getText().toString());
                     intent.putExtra("estado", binding.estado.getText().toString());
                     intent.putExtra("fechaEntrega", binding.fechaEntrega.getText().toString());

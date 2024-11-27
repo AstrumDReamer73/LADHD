@@ -6,5 +6,5 @@ import java.util.List;
     @Insert public void insertar(Tarea tarea);
     @Update public void modificar(Tarea tarea);
     @Delete public void eliminar(Tarea tarea);
-    @Query(value = "SELECT * FROM Tarea")public LiveData<List<Tarea>> obtenerTodas();
+    @Query(value = "SELECT * FROM tarea")public LiveData<List<Tarea>> obtenerTodas();
 }

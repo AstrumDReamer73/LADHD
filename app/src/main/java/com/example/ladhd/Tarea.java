@@ -1,6 +1,7 @@
 package com.example.ladhd;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName="tarea")
@@ -11,7 +12,18 @@ public class Tarea {
     private String estado;
     private String descripcion;
 
-    public Tarea( String nombre, String fechaEntrega, String estado, String descripcion) {
+    public Tarea(int id, String nombre, String fechaEntrega, String estado, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.fechaEntrega = fechaEntrega;
+        this.estado = estado;
+        this.descripcion = descripcion;
+    }
+
+    @Ignore public Tarea(){
+
+    }
+    @Ignore public Tarea(String nombre, String fechaEntrega, String estado, String descripcion) {
         this.nombre = nombre;
         this.fechaEntrega = fechaEntrega;
         this.estado = estado;

@@ -44,43 +44,56 @@ public class MainActivity extends AppCompatActivity {
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
             @Override public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {return false;}
 
-            @Override public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                if(direction==ItemTouchHelper.RIGHT){
-                    Toast.makeText(MainActivity.this,"eliminar",Toast.LENGTH_SHORT).show();
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                if (direction == ItemTouchHelper.RIGHT) {
+                    // Eliminar
+                    Toast.makeText(MainActivity.this, "eliminar", Toast.LENGTH_SHORT).show();
                     tareaViewModel.eliminarTarea(listaTareas.getTarea(viewHolder.getAdapterPosition()));
-                }else{
-                    Intent intent=new Intent(MainActivity.this, DataInsert.class);
-                    intent.putExtra("tipo","modificar");
-                    intent.putExtra("nombre",listaTareas.getTarea(viewHolder.getAdapterPosition()).getNombre());
-                    intent.putExtra("fechaEntrega",listaTareas.getTarea(viewHolder.getAdapterPosition()).getFechaEntrega());
-                    intent.putExtra("estado",listaTareas.getTarea(viewHolder.getAdapterPosition()).getEstado());
-                    intent.putExtra("descripcion",listaTareas.getTarea(viewHolder.getAdapterPosition()).getDescripcion());
-                    startActivityForResult(intent,2);
+                } else {
+                    // Modificar
+                    Intent intent = new Intent(MainActivity.this, DataInsert.class);
+                    intent.putExtra("tipo", "modificar");
+                    Tarea tarea = listaTareas.getTarea(viewHolder.getAdapterPosition());
+                    intent.putExtra("id", tarea.getId());
+                    intent.putExtra("nombre", tarea.getNombre());
+                    intent.putExtra("fechaEntrega", tarea.getFechaEntrega());
+                    intent.putExtra("estado", tarea.getEstado());
+                    intent.putExtra("descripcion", tarea.getDescripcion());
+                    startActivityForResult(intent, 2);
                 }
             }
+
         }).attachToRecyclerView(binding.listaTareas);
     }
-
-    @Override protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==1){
-            String nombre=data.getStringExtra("nombre");
-            String estado=data.getStringExtra("estado");
-            String fechaEntrega=data.getStringExtra("fechaEntrega");
-            String descripcion=data.getStringExtra("descripcion");
-            Tarea tarea=new Tarea(nombre,estado,fechaEntrega,descripcion);
+        if (requestCode == 1) { // Añadir tarea
+            String nombre = data.getStringExtra("nombre");
+            String estado = data.getStringExtra("estado");
+            String fechaEntrega = data.getStringExtra("fecha de entrega");
+            String descripcion = data.getStringExtra("descripcion");
+            Tarea tarea = new Tarea(nombre, estado, fechaEntrega, descripcion);
             tareaViewModel.insertarTarea(tarea);
-            Toast.makeText(this,"tarea añadida",Toast.LENGTH_LONG).show();
-        }else if(requestCode==2){
-            String nombre=data.getStringExtra("nombre");
-            String estado=data.getStringExtra("estado");
-            String fechaEntrega=data.getStringExtra("fechaEntrega");
-            String descripcion=data.getStringExtra("descripcion");
-            Tarea tarea=new Tarea(nombre,estado,fechaEntrega,descripcion);
-            tareaViewModel.modificarTarea(tarea);
-            Toast.makeText(this,"tarea modificada",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "tarea añadida", Toast.LENGTH_LONG).show();
+        } else if (requestCode == 2) { // Modificar tarea
+            int id = data.getIntExtra("id", -1); // Obtener el ID
+            if (id != -1) {
+                String nombre = data.getStringExtra("nombre");
+                String estado = data.getStringExtra("estado");
+                String fechaEntrega = data.getStringExtra("fecha de entrega");
+                String descripcion = data.getStringExtra("descripcion");
+                Tarea tarea = new Tarea(id, nombre, estado, fechaEntrega, descripcion);
+                tareaViewModel.modificarTarea(tarea);
+                Toast.makeText(this, "tarea modificada", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Error al modificar tarea: ID no válido", Toast.LENGTH_SHORT).show();
+            }
         }
     }
+
+
 }
 
 //git remote add origin https://github.com/AstrumDReamer73/LADHD.git
