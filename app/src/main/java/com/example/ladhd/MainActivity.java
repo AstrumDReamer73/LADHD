@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         tareaViewModel=new ViewModelProvider(this,(ViewModelProvider.Factory) ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(TareaViewModel.class);
 
-        binding.BTAAdirTarea.setOnClickListener(new View.OnClickListener(){
+        binding.BTAnadirTarea.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,DataInsert.class);
