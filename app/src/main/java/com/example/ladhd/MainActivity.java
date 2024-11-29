@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         binding.listaTareas.setLayoutManager(new LinearLayoutManager(this));
         binding.listaTareas.setHasFixedSize(true);
 
-        ListaTareas listaTareas=new ListaTareas();
+        ListaTareas listaTareas=new ListaTareas(this);
         binding.listaTareas.setAdapter(listaTareas);
         tareaViewModel.getAllTareas().observe(this,new Observer<List<Tarea>>(){
             @Override
