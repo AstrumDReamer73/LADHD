@@ -60,9 +60,9 @@ public class DataInsert extends AppCompatActivity {
             binding.BTAnadir.setOnClickListener(v -> {
                 Intent intent = new Intent();
                 intent.putExtra("nombre", binding.nombre.getText().toString());
-                intent.putExtra("estado", binding.nombre.getText().toString());
-                intent.putExtra("fecha de entrega", binding.nombre.getText().toString());
-                intent.putExtra("descripcion", binding.nombre.getText().toString());
+                intent.putExtra("estado", binding.estado.getText().toString());
+                intent.putExtra("fecha de entrega", binding.fechaEntrega.getText().toString());
+                intent.putExtra("descripcion", binding.descripcion.getText().toString());
                 intent.putExtra("id", id);
                 setResult(RESULT_OK, intent);
                 finish();
@@ -72,9 +72,9 @@ public class DataInsert extends AppCompatActivity {
             binding.BTAnadir.setOnClickListener(v -> {
                 Intent intent = new Intent();
                 intent.putExtra("nombre", binding.nombre.getText().toString());
-                intent.putExtra("estado", binding.nombre.getText().toString());
-                intent.putExtra("fecha de entrega", binding.nombre.getText().toString());
-                intent.putExtra("descripcion", binding.nombre.getText().toString());
+                intent.putExtra("estado", binding.estado.getText().toString());
+                intent.putExtra("fecha de entrega", binding.fechaEntrega.getText().toString());
+                intent.putExtra("descripcion", binding.descripcion.getText().toString());
                 setResult(RESULT_OK, intent);
                 finish();
             });
