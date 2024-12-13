@@ -49,8 +49,8 @@ public class DataInsert extends AppCompatActivity {
         if ("modificar".equals(type)) {
             setTitle("Modificar Tarea");
             binding.nombre.setText(getIntent().getStringExtra("nombre"));
-            binding.fechaEntrega.setText(getIntent().getStringExtra("fechaEntrega"));
             binding.estado.setText(getIntent().getStringExtra("estado"));
+            binding.fechaEntrega.setText(getIntent().getStringExtra("fechaEntrega"));
             binding.descripcion.setText(getIntent().getStringExtra("descripcion"));
             int id = getIntent().getIntExtra("id", 0);
             binding.BTAnadir.setText("Modificar Tarea");
@@ -63,9 +63,9 @@ public class DataInsert extends AppCompatActivity {
 
     private void insertarTarea() {
         String nombre = binding.nombre.getText().toString().trim();
-        String descripcion = binding.descripcion.getText().toString().trim();
         String estado = binding.estado.getText().toString().trim();
         String fechaEntrega = binding.fechaEntrega.getText().toString().trim();
+        String descripcion = binding.descripcion.getText().toString().trim();
 
         if (nombre.isEmpty() || descripcion.isEmpty()) {
             Toast.makeText(this, "El nombre y la descripción son obligatorios", Toast.LENGTH_SHORT).show();
@@ -89,9 +89,9 @@ public class DataInsert extends AppCompatActivity {
 
     private void modificarTarea(int id) {
         String nombre = binding.nombre.getText().toString().trim();
-        String descripcion = binding.descripcion.getText().toString().trim();
         String estado = binding.estado.getText().toString().trim();
         String fechaEntrega = binding.fechaEntrega.getText().toString().trim();
+        String descripcion = binding.descripcion.getText().toString().trim();
 
         if (nombre.isEmpty() || descripcion.isEmpty()) {
             Toast.makeText(this, "El nombre y la descripción son obligatorios", Toast.LENGTH_SHORT).show();

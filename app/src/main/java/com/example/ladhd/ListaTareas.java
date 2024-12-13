@@ -45,8 +45,8 @@ public class ListaTareas extends ListAdapter<Tarea, ListaTareas.viewHolder> {
         holder.binding.BTDictar.setOnClickListener(v -> {
             if (isTextToSpeechReady) {
                 String textToSpeak = "Tarea: " + tarea.getNombre()
-                        + ", Estado: " + tarea.getEstado()
-                        + ", Fecha de entrega: " + tarea.getFechaEntrega()
+                        + ", Fecha de entrega: " + tarea.getEstado()
+                        + ", Estado: " + tarea.getFechaEntrega()
                         + ", Descripción: " + tarea.getDescripcion();
                 textToSpeech.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null, null);
             } else {Toast.makeText(context, "Text-to-Speech no está listo aún", Toast.LENGTH_SHORT).show();}

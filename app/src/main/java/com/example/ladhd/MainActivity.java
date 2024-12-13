@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
                     Tarea tarea = listaTareas.getTarea(viewHolder.getAdapterPosition());
                     intent.putExtra("id", tarea.getId());
                     intent.putExtra("nombre", tarea.getNombre());
-                    intent.putExtra("fechaEntrega", tarea.getFechaEntrega());
                     intent.putExtra("estado", tarea.getEstado());
+                    intent.putExtra("fechaEntrega", tarea.getFechaEntrega());
                     intent.putExtra("descripcion", tarea.getDescripcion());
                     startActivityForResult(intent, 2);
                 }

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#F7DC6F"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="hola"
+        android:text="Hola"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,11 +21,10 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="¿qué vamos a hacer hoy?"
+        android:text="¿Qué vamos a hacer hoy?"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
 
     <TextView
         android:id="@+id/TV5"
@@ -33,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:layout_weight="1"
-        android:text="tareas en curso, deslizar a la derecha para eliminar la tarea o deslizar a la izquierda para modificarlar"
+        android:text="Deslizar a la derecha para eliminar la tarea o deslizar a la izquierda para modificarlar"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,10 +40,26 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaTareas"
-        android:layout_width="403dp"
-        android:layout_height="460dp"
+        android:layout_width="390dp"
+        android:layout_height="426dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV6"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <TextView
+        android:id="@+id/TV6"
+        android:layout_width="407dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:text="Tareas en curso"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BTAnadirTarea" />
 
@@ -52,7 +67,9 @@
         android:id="@+id/BTAnadirTarea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#3bb1f6"
         android:text="añadir Tarea"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/TV5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
